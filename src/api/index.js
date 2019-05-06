@@ -1,10 +1,15 @@
+var ip = "54.161.74.71";
+
 module.exports = {
-  singIn: async data => {
-    var url = "http://localhost:5000/users/signin";
+  singIn: async (email, password) => {
+    var url = "http://" + ip + ":5000/users/signin";
     var response = {};
     await fetch(url, {
       method: "POST",
-      body: JSON.stringify(data),
+      body: JSON.stringify({
+        email,
+        password
+      }),
       headers: {
         "Content-Type": "application/json"
       },
@@ -18,12 +23,15 @@ module.exports = {
       });
     return response;
   },
-  singUp: async data => {
-    var url = "http://localhost:5000/users/signup";
+  singUp: async (email, password) => {
+    var url = "http://" + ip + ":5000/users/signup";
     var response = {};
     await fetch(url, {
       method: "POST",
-      body: JSON.stringify(data),
+      body: JSON.stringify({
+        email,
+        password
+      }),
       headers: {
         "Content-Type": "application/json"
       },

@@ -4,16 +4,12 @@ import "./App.css";
 
 class App extends Component {
   async componentDidMount() {
-    var data = {
-      email: "ivang@hotmail.com",
-      password: "123166"
-    };
-    const response = await API.singIn(data);
-    if (response.error) {
-      console.log(response.error);
-    } else {
-      console.log(response.response);
-    }
+    var email = "ivang@hotmail.com";
+    var password = "123166";
+    console.time("sign");
+    const response = await API.singUp(email, password);
+    console.timeEnd("sign");
+    console.log(response);
   }
   render() {
     return (
